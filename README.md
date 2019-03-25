@@ -21,9 +21,9 @@ dependencies {
 ```
 
 
-## Examples
+## 1 Examples
 
-### 1. Quick and clean
+### 1.1 Quick and clean
 ```java
         List<String> names = Arrays.asList("Black Widow", "Hulk", "Thanos", "Maw", "Dr. Strange", "Dormamu");
 
@@ -34,7 +34,7 @@ dependencies {
                 .vertical();
 ```
 
-### 2. Quick and clean, using a view resource id
+### 1.2 Quick and clean, using a view resource id
 ```java
         List<String> names = Arrays.asList("Black Widow", "Hulk", "Thanos", "Maw", "Dr. Strange", "Dormamu");
 
@@ -45,7 +45,7 @@ dependencies {
                 .vertical();
 ```
 
-### 3. Advanced and clean
+### 1.3 Advanced and clean
 ```java
         new RecyclerAdapterBuilder<UserView, User>(recyclerView)
                 .viewResource(R.layout.user_list_item)
@@ -56,3 +56,12 @@ dependencies {
                 .onLongClick(R.id.contents, this::showOptionsDialog)
                 .vertical();
 ```                
+
+
+## 2 Builder methods:
+### 2.1 Mandatory 
+viewFactory: the method (functional interface) that takes no arguments and is responsible for creating and returning the view that will be used as an item. Alternatively, the viewResource(id) method can be use, it will create an inflate factory for you
+
+bind: the method (functional interface) that takes two arguments, view and model and is responsible for filling the view with the contents of the model
+
+dataSource: the method (functional interface) that returns a collection of items (of MODEL type) that will be used as a dataset for the RecyclerView
