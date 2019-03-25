@@ -60,8 +60,8 @@ dependencies {
 
 ## 2 Builder methods:
 ### 2.1 Mandatory 
-viewFactory: the method (functional interface) that takes no arguments and is responsible for creating and returning the view that will be used as an item. Alternatively, the viewResource(id) method can be use, it will create an inflate factory for you
+**viewFactory**: the method (functional interface) that takes no arguments and is responsible for creating and returning the view that will be used as an item. Alternatively, the viewResource(id) method can be use, it will create an inflate factory for you
 
-bind: the method (functional interface) that takes two arguments, view and model and is responsible for filling the view with the contents of the model
+**bind**: the method (functional interface) that takes two arguments, view and model and is responsible for filling the view with the contents of the model
 
-dataSource: the method (functional interface) that returns a collection of items (of MODEL type) that will be used as a dataset for the RecyclerView
+**dataSource**: the method (functional interface) that returns a collection of items (of MODEL type) that will be used as a dataset for the RecyclerView
