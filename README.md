@@ -60,20 +60,27 @@ dependencies {
 
 ## 2 Builder methods:
 ### 2.1 Mandatory (will throw if any of these isn't assigned)
+
+#### 2.1.a 
 **viewFactory(ViewFactory<VIEW> viewFactory)**
 
 sets the method (functional interface) that takes no arguments and is responsible for creating and returning the view that will be used as an item. Alternatively, the viewResource(id) method can be use, it will create an inflate factory for you
 
+#### 2.1.b
 **bind(Bind<VIEW, MODEL> bind)**: 
 
 sets the method (functional interface) that takes two arguments, view and model and is responsible for filling the view with the contents of the model
 
+#### 2.1.c
 **data(DataSource<MODEL> dataSource)**: 
 
 sets the method (functional interface) that returns a collection of items (of MODEL type) that will be used as a dataset for the RecyclerView
 
+#### 2.1.d
+**any of the terminal methods below**
 
-### 2.1 Terminal (The adapter will not be attached until a terminal method is invoked)
+
+### 2.2 Terminal (The adapter will not be attached until a terminal method is invoked)
 
 **vertical()**
 
@@ -91,6 +98,5 @@ Assigns a GridLayoutManager with the specified column count and builds this adap
 
 Assigns the passed LayoutManager and builds this adapter
 
-**any of the terminal methods below**
 
-### 2.2 Useful methods
+### 2.3 Useful methods
