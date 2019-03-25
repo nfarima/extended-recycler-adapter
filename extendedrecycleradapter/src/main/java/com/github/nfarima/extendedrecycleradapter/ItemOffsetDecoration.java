@@ -1,4 +1,4 @@
-package com.github.nfarima.recycleradapterbuilder;
+package com.github.nfarima.extendedrecycleradapter;
 
 import android.content.Context;
 import android.graphics.Rect;

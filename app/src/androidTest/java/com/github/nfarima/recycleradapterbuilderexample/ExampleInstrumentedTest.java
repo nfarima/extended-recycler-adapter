@@ -1,4 +1,4 @@
-package com.github.nfarima.recycleradapterbuilderexample;
+package com.github.nfarima.extendedrecycleradapterexample;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.github.nfarima.recycleradapterbuilderexample", appContext.getPackageName());
+        assertEquals("com.github.nfarima.extendedrecycleradapterexample", appContext.getPackageName());
     }
 }

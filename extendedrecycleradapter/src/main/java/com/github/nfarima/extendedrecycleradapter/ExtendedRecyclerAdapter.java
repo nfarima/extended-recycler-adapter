@@ -1,4 +1,4 @@
-package com.github.nfarima.recycleradapterbuilder;
+package com.github.nfarima.extendedrecycleradapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,14 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 
-import com.github.nfarima.recycleradapterbuilder.lambda.Bind;
-import com.github.nfarima.recycleradapterbuilder.lambda.Checked;
-import com.github.nfarima.recycleradapterbuilder.lambda.Click;
-import com.github.nfarima.recycleradapterbuilder.lambda.ClickEx;
-import com.github.nfarima.recycleradapterbuilder.lambda.DataSource;
-import com.github.nfarima.recycleradapterbuilder.lambda.LongClick;
-import com.github.nfarima.recycleradapterbuilder.lambda.Mutator;
-import com.github.nfarima.recycleradapterbuilder.lambda.ViewFactory;
+import com.github.nfarima.extendedrecycleradapter.lambda.Checked;
+import com.github.nfarima.extendedrecycleradapter.lambda.ClickEx;
+import com.github.nfarima.extendedrecycleradapter.lambda.Mutator;
+import com.github.nfarima.extendedrecycleradapter.lambda.ViewFactory;
+import com.github.nfarima.extendedrecycleradapter.lambda.Bind;
+import com.github.nfarima.extendedrecycleradapter.lambda.Click;
+import com.github.nfarima.extendedrecycleradapter.lambda.DataSource;
+import com.github.nfarima.extendedrecycleradapter.lambda.LongClick;
 
 import java.util.List;
 

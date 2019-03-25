@@ -1,1 +1,1 @@
-include ':app', ':recycleradapterbuilder'
+include ':app', ':extendedrecycleradapter'

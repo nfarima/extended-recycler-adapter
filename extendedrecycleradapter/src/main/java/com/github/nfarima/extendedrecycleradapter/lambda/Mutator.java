@@ -1,4 +1,4 @@
-package com.github.nfarima.recycleradapterbuilder.lambda;
+package com.github.nfarima.extendedrecycleradapter.lambda;
 
 import android.view.View;
 

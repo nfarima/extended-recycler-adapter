@@ -1,4 +1,4 @@
-package com.github.nfarima.recycleradapterbuilderexample;
+package com.github.nfarima.extendedrecycleradapterexample;
 
 import org.junit.Test;
 
