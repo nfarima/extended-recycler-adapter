@@ -59,7 +59,7 @@ dependencies {
 
 
 ## 2 Builder methods:
-### 2.1 Mandatory 
+### 2.1 Mandatory (will throw if any of these isn't assigned)
 **viewFactory**
 
 sets the method (functional interface) that takes no arguments and is responsible for creating and returning the view that will be used as an item. Alternatively, the viewResource(id) method can be use, it will create an inflate factory for you
@@ -71,3 +71,17 @@ sets the method (functional interface) that takes two arguments, view and model 
 **dataSource**: 
 
 sets the method (functional interface) that returns a collection of items (of MODEL type) that will be used as a dataset for the RecyclerView
+
+
+### 2.1 Terminal (The adapter will not be attached until a terminal method is invoked)
+**vertical()**
+Assigns a vertical LinearLayoutManager to the RecyclerView and builds this adapter
+
+**horizontal()**
+Assigns a horizontal LinearLayoutManager to the RecyclerView and builds this adapter
+
+**grid(int columnCount)**
+Assigns a GridLayoutManager with the specified column count and builds this adapter
+
+**custom(RecyclerView.LayoutManager layoutManager)**
+Assigns the passed LayoutManager and builds this adapter
