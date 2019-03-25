@@ -33,3 +33,27 @@ dependencies {
                 .bind(TextView::setText)
                 .vertical();
 ```
+
+### 2. Quick and clean, using a view resource id
+```java
+        List<String> names = Arrays.asList("Black Widow", "Hulk", "Thanos", "Maw", "Dr. Strange", "Dormamu");
+
+        new RecyclerAdapterBuilder<TextView, String>(recyclerView)
+                .viewResource(android.R.layout.simple_list_item_1)
+                .data(() -> names)
+                .bind(TextView::setText)
+                .vertical();
+```
+
+### 3. Advanced and clean
+```java
+        new RecyclerAdapterBuilder<UserView, User>(recyclerView)
+                .viewResource(R.layout.user_list_item)
+                .data(UsersRepository::getActiveUsers)
+                .bind(UserView::fill)
+                .onCheckedChange(R.id.userActiveCheckbox, this::activateUser)
+                .onCheckedChange(R.id.dummy, 
+                (position, item, isChecked) -> Log.e("RecyclerAdapter", String.format("Item %s at position %d checked: %b", item, position, isChecked)))
+
+                .vertical();
+```                
