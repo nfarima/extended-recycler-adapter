@@ -21,7 +21,7 @@ import com.github.nfarima.recycleradapterbuilder.lambda.ViewFactory;
 import java.util.List;
 
 
-public class RecyclerAdapterBuilder<VIEW extends View, MODEL> {
+public class ExtendedRecyclerAdapter<VIEW extends View, MODEL> {
 
 
     private Bind<VIEW, MODEL> bind = (view, model) -> {
@@ -56,53 +56,53 @@ public class RecyclerAdapterBuilder<VIEW extends View, MODEL> {
     };
     private RecyclerView.Adapter<RecyclerView.ViewHolder> adapter;
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> viewFactory(ViewFactory<VIEW> viewFactory) {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> viewFactory(ViewFactory<VIEW> viewFactory) {
         this.viewFactory = viewFactory;
         return this;
     }
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> viewResource(int layoutResourceId) {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> viewResource(int layoutResourceId) {
         this.viewFactory = () -> (VIEW)View.inflate(recyclerView.getContext(), layoutResourceId, null);
         return this;
     }
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> data(DataSource<MODEL> dataSource) {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> data(DataSource<MODEL> dataSource) {
         this.dataSource = dataSource;
         return this;
     }
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> mutate(Mutator<VIEW, MODEL> mutator) {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> mutate(Mutator<VIEW, MODEL> mutator) {
         this.mutator = mutator;
         return this;
     }
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> onClick(Click<MODEL> click) {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> onClick(Click<MODEL> click) {
         this.click = click;
         return this;
     }
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> onClick(int id, Click<MODEL> click) {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> onClick(int id, Click<MODEL> click) {
         this.secondaryClick.put(id, click);
         return this;
     }
 
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> onCheckedChange(int id, Checked<MODEL> checked) {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> onCheckedChange(int id, Checked<MODEL> checked) {
         this.checkedChange.put(id, checked);
         return this;
     }
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> onLongClick(int id, LongClick<MODEL> longClick) {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> onLongClick(int id, LongClick<MODEL> longClick) {
         this.secondaryLongClick.put(id, longClick);
         return this;
     }
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> onLongClick(LongClick<MODEL> longClick) {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> onLongClick(LongClick<MODEL> longClick) {
         this.longClick = longClick;
         return this;
     }
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> bind(Bind<VIEW, MODEL> bind) {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> bind(Bind<VIEW, MODEL> bind) {
         this.bind = bind;
         return this;
     }
@@ -110,29 +110,29 @@ public class RecyclerAdapterBuilder<VIEW extends View, MODEL> {
     private RecyclerView recyclerView;
 
 
-    public RecyclerAdapterBuilder(RecyclerView recyclerView) {
+    public ExtendedRecyclerAdapter(RecyclerView recyclerView) {
         this.recyclerView = recyclerView;
     }
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> vertical() {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> vertical() {
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext(), LinearLayoutManager.VERTICAL, false));
         build();
         return this;
     }
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> custom(RecyclerView.LayoutManager layoutManager) {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> custom(RecyclerView.LayoutManager layoutManager) {
         recyclerView.setLayoutManager(layoutManager);
         build();
         return this;
     }
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> horizontal() {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> horizontal() {
         recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext(), LinearLayoutManager.HORIZONTAL, false));
         build();
         return this;
     }
 
-    public RecyclerAdapterBuilder<VIEW, MODEL> grid(int columnCount) {
+    public ExtendedRecyclerAdapter<VIEW, MODEL> grid(int columnCount) {
         recyclerView.setLayoutManager(new GridLayoutManager(recyclerView.getContext(), columnCount));
         build();
         return this;
@@ -242,5 +242,9 @@ public class RecyclerAdapterBuilder<VIEW extends View, MODEL> {
 
     public void notifyItemRemoved(int position) {
         adapter.notifyItemRemoved(position);
+    }
+
+    public RecyclerView.Adapter<RecyclerView.ViewHolder> getAdapter() {
+        return adapter;
     }
 }
