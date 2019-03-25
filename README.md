@@ -1,6 +1,6 @@
-# recycler-adapter-builder
+# extended-recycler-adapter
 
-[![Release](https://jitpack.io/v/nfarima/recycler-adapter-builder.svg)](https://jitpack.io/#nfarima/recycler-adapter-builder)
+[![Release](https://jitpack.io/v/nfarima/extended-recycler-adapter.svg)](https://jitpack.io/#nfarima/extended-recycler-adapter)
 
 A fast and flexible way to use the RecyclerView on android
 
@@ -16,7 +16,7 @@ and:
 
 ```gradle
 dependencies {
-    implementation 'com.github.nfarima:recycler-adapter-builder:1.0'
+    implementation 'com.github.nfarima:extended-recycler-adapter:1.0'
 }
 ```
 
@@ -27,7 +27,7 @@ dependencies {
 ```java
         List<String> names = Arrays.asList("Black Widow", "Hulk", "Thanos", "Maw", "Dr. Strange", "Dormamu");
 
-        new RecyclerAdapterBuilder<TextView, String>(recyclerView)
+        new ExtendedRecyclerAdapter<TextView, String>(recyclerView)
                 .viewFactory(() -> new TextView(this))
                 .data(() -> names)
                 .bind(TextView::setText)
@@ -38,7 +38,7 @@ dependencies {
 ```java
         List<String> names = Arrays.asList("Black Widow", "Hulk", "Thanos", "Maw", "Dr. Strange", "Dormamu");
 
-        new RecyclerAdapterBuilder<TextView, String>(recyclerView)
+        new ExtendedRecyclerAdapter<TextView, String>(recyclerView)
                 .viewResource(android.R.layout.simple_list_item_1)
                 .data(() -> names)
                 .bind(TextView::setText)
@@ -47,7 +47,7 @@ dependencies {
 
 ### 1.3 Advanced and clean
 ```java
-        new RecyclerAdapterBuilder<UserView, User>(recyclerView)
+        new ExtendedRecyclerAdapter<UserView, User>(recyclerView)
                 .viewResource(R.layout.user_list_item)
                 .data(UsersRepository::getActiveUsers)
                 .bind(UserView::fill)
@@ -82,7 +82,7 @@ dependencies {
 
 ### 2.2 Terminal (The adapter will not be attached until a terminal method is invoked)
 
-These methods build and attach to the RecyclerView you passed in the constructor. The obtained instance can then be used to control the RecyclerView using the intermediary methods. Calling any of the mandatory or terminal methods after invoking a terminal method will throw an exception. (this does not comply to the builder pattern entirely)
+These methods build and attach to the RecyclerView you passed in the constructor. The obtained instance can then be used to control the RecyclerView using the intermediary methods. Calling any of the mandatory or terminal methods after invoking a terminal method will throw an exception
 
 **vertical()**
 
