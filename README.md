@@ -82,6 +82,8 @@ dependencies {
 
 ### 2.2 Terminal (The adapter will not be attached until a terminal method is invoked)
 
+These methods build and attach to the RecyclerView you passed in the constructor. The obtained instance can then be used to control the RecyclerView using the intermediary methods. Calling any of the mandatory or terminal methods after invoking a terminal method will throw an exception. (this does not comply to the builder pattern entirely)
+
 **vertical()**
 
     Assigns a vertical LinearLayoutManager to the RecyclerView and builds this adapter
@@ -99,7 +101,7 @@ dependencies {
     Assigns the passed LayoutManager and builds this adapter
 
 
-### 2.3 Useful methods
+### 2.3 Intermediary methods
 
     onClick(int id, Click<MODEL> click)
     
@@ -114,3 +116,5 @@ dependencies {
     notifyItemRemoved(int position) forwards the call to the underlying adapter
     
     setItems(List<MODEL> items) allows you to change the dataset
+    
+    getAdapter() returns the underlying adapter
