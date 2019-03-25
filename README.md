@@ -51,9 +51,8 @@ dependencies {
                 .viewResource(R.layout.user_list_item)
                 .data(UsersRepository::getActiveUsers)
                 .bind(UserView::fill)
-                .onCheckedChange(R.id.userActiveCheckbox, this::activateUser)
-                .onCheckedChange(R.id.dummy, 
-                (position, item, isChecked) -> Log.e("RecyclerAdapter", String.format("Item %s at position %d checked: %b", item, position, isChecked)))
-
+                .onCheckedChange(R.id.userActiveCheckbox, this::setActive)
+                .onClick(R.id.removeUser, this::showRemoveConfirmation)
+                .onLongClick(R.id.contents, this::showOptionsDialog)
                 .vertical();
 ```                
