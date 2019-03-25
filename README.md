@@ -18,7 +18,7 @@ and:
 
 ```gradle
 dependencies {
-    implementation 'com.github.nfarima:extended-recycler-adapter:1.0'
+    implementation 'com.github.nfarima:extended-recycler-adapter:1.1'
 }
 ```
 
