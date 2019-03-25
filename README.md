@@ -101,10 +101,16 @@ dependencies {
 
 ### 2.3 Useful methods
 
-    **onClick(int id, Click<MODEL> click)**
-    **onLongClick(int id, LongClick<MODEL> longClick)**
-    **onCheckedChange(int id, Checked<MODEL> checked)**
-    **mutate(Mutator<VIEW, MODEL> mutator)**  Allows you to make any custom mutations to the view on bind
-    **notifyDataSetChanged()**forwards the call to the underlying adapter
-    **notifyItemRemoved(int position)** forwards the call to the underlying adapter
-    **setItems(List<MODEL> items)** allows you to change the dataset
+    onClick(int id, Click<MODEL> click)
+    
+    onLongClick(int id, LongClick<MODEL> longClick)
+    
+    onCheckedChange(int id, Checked<MODEL> checked)
+    
+    mutate(Mutator<VIEW, MODEL> mutator)  Allows you to make any custom mutations to the view on bind
+    
+    notifyDataSetChanged() forwards the call to the underlying adapter
+    
+    notifyItemRemoved(int position) forwards the call to the underlying adapter
+    
+    setItems(List<MODEL> items) allows you to change the dataset
