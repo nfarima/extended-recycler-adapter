@@ -1,5 +1,6 @@
 # extended-recycler-adapter
-![Recycler Adapter Demo]https://github.com/nfarima/extended-recycler-adapter/blob/master/demo.png)
+
+![Recycler Adapter](https://github.com/nfarima/extended-recycler-adapter/blob/master/demo.png)
 
 [![Release](https://jitpack.io/v/nfarima/extended-recycler-adapter.svg)](https://jitpack.io/#nfarima/extended-recycler-adapter)
 
