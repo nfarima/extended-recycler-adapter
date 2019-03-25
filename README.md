@@ -19,3 +19,17 @@ dependencies {
     implementation 'com.github.nfarima:recycler-adapter-builder:1.0'
 }
 ```
+
+
+## Examples
+
+### 1. Quick and clean
+```java
+        List<String> names = Arrays.asList("Black Widow", "Hulk", "Thanos", "Maw", "Dr. Strange", "Dormamu");
+
+        new RecyclerAdapterBuilder<TextView, String>(recyclerView)
+                .viewFactory(() -> new TextView(this))
+                .data(() -> names)
+                .bind(TextView::setText)
+                .vertical();
+```
