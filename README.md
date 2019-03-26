@@ -89,7 +89,7 @@ android {
 #### 2.1.c
 **data(DataSource< MODEL > dataSource)**: 
 
-    sets the method (functional interface) that returns a collection of items (of MODEL type) that will be used as a dataset for the RecyclerView
+    assigns the List<MODEL> data set or provides the datasource method (functional interface) that returns a collection of items (of MODEL type) that will be used as a dataset for the RecyclerView
 
 #### 2.1.d
 **any of the terminal methods below**
