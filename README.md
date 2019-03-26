@@ -5,7 +5,7 @@
 
 
 
-A fast and flexible way to use the RecyclerView on android. Eliminates all verbose declarations of RecyclerAdapter and ViewHolder classes
+A fast and flexible way to use the RecyclerView on android. Eliminates all verbose declarations of RecyclerAdapter and ViewHolder classes by taking full advantage of Java8 lambdas, which are now available as a backport on any API level
 
 Add it to your build.gradle with:
 ```gradle
@@ -23,6 +23,17 @@ dependencies {
 }
 ```
 
+make sure you have enabled the Java8 features in the **android compileOptions** section of your app module build.gradle file
+(as long as you don't use other Java8 feature than lambdas, you can enable it on any API level)
+```
+android {
+..............
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+```
 
 ## 1 Examples
 
