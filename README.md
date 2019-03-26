@@ -1,10 +1,11 @@
 # extended-recycler-adapter
+[![Release](https://jitpack.io/v/nfarima/extended-recycler-adapter.svg)](https://jitpack.io/#nfarima/extended-recycler-adapter)
 
 ![Recycler Adapter](https://github.com/nfarima/extended-recycler-adapter/blob/master/demo.png)
 
-[![Release](https://jitpack.io/v/nfarima/extended-recycler-adapter.svg)](https://jitpack.io/#nfarima/extended-recycler-adapter)
 
-A fast and flexible way to use the RecyclerView on android
+
+A fast and flexible way to use the RecyclerView on android. Eliminates all verbose declarations of RecyclerAdapter and ViewHolder classes
 
 Add it to your build.gradle with:
 ```gradle
@@ -42,12 +43,13 @@ dependencies {
 
         new ExtendedRecyclerAdapter<TextView, String>(recyclerView)
                 .viewResource(android.R.layout.simple_list_item_1)
+                .onClick(this::showName)
                 .data(() -> names)
                 .bind(TextView::setText)
                 .vertical();
 ```
 
-### 1.3 Advanced and clean
+### 1.3 Advanced, still clean
 ```java
         new ExtendedRecyclerAdapter<UserView, User>(recyclerView)
                 .viewResource(R.layout.user_list_item)
@@ -66,7 +68,7 @@ dependencies {
 #### 2.1.a 
 **viewFactory(ViewFactory<VIEW> viewFactory)**
 
-    sets the method (functional interface) that takes no arguments and is responsible for creating and returning the view that will be used as an item. Alternatively, the viewResource(id) method can be use, it will create an inflate factory for you
+    sets the method (functional interface) that takes no arguments and is responsible for creating and returning the view that will be used as an item. Alternatively, the viewResource(id) method can be used, it will create an inflate factory for you
 
 #### 2.1.b
 **bind(Bind<VIEW, MODEL> bind)**: 
