@@ -1,4 +1,4 @@
-# extended-recycler-adapter
+# Android Extended Recycler Adapter
 [![Release](https://jitpack.io/v/nfarima/extended-recycler-adapter.svg)](https://jitpack.io/#nfarima/extended-recycler-adapter)
 
 ![Recycler Adapter](https://github.com/nfarima/extended-recycler-adapter/blob/master/demo.png)
