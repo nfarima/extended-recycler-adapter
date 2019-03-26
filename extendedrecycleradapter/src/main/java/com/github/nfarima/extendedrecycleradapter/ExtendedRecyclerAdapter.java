@@ -23,6 +23,7 @@ import java.util.List;
 
 public class ExtendedRecyclerAdapter<VIEW extends View, MODEL> {
 
+    private boolean built = false;
 
     private Bind<VIEW, MODEL> bind = (view, model) -> {
         throw new IllegalStateException("You must implement this method");
@@ -57,17 +58,26 @@ public class ExtendedRecyclerAdapter<VIEW extends View, MODEL> {
     private RecyclerView.Adapter<RecyclerView.ViewHolder> adapter;
 
     public ExtendedRecyclerAdapter<VIEW, MODEL> viewFactory(ViewFactory<VIEW> viewFactory) {
+        validateChainedMethodCall("You can not change the view factory once assigned. See the docs");
         this.viewFactory = viewFactory;
         return this;
     }
 
     public ExtendedRecyclerAdapter<VIEW, MODEL> viewResource(int layoutResourceId) {
-        this.viewFactory = () -> (VIEW)View.inflate(recyclerView.getContext(), layoutResourceId, null);
+        validateChainedMethodCall("You can not change the view factory once assigned. See the docs");
+        this.viewFactory = () -> (VIEW) View.inflate(recyclerView.getContext(), layoutResourceId, null);
         return this;
     }
 
     public ExtendedRecyclerAdapter<VIEW, MODEL> data(DataSource<MODEL> dataSource) {
+        validateChainedMethodCall("You can not change the data source once assigned. See the docs");
         this.dataSource = dataSource;
+        return this;
+    }
+
+    public ExtendedRecyclerAdapter<VIEW, MODEL> data(List<MODEL> items) {
+        validateChainedMethodCall("You can not change the data source once assigned. See the docs");
+        this.dataSource = () -> items;
         return this;
     }
 
@@ -103,6 +113,7 @@ public class ExtendedRecyclerAdapter<VIEW extends View, MODEL> {
     }
 
     public ExtendedRecyclerAdapter<VIEW, MODEL> bind(Bind<VIEW, MODEL> bind) {
+        validateChainedMethodCall("You can not change the binder once assigned. See the docs");
         this.bind = bind;
         return this;
     }
@@ -138,10 +149,20 @@ public class ExtendedRecyclerAdapter<VIEW extends View, MODEL> {
         return this;
     }
 
+    private void validateChainedMethodCall(String message) {
+        if (built) {
+            throw new IllegalStateException(message);
+        }
+
+    }
+
     private List<MODEL> items;
 
     @SuppressWarnings("unchecked")
     private void build() {
+        validateChainedMethodCall("You can not call a terminal method twice");
+
+        built = true;
 
         adapter = new RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -149,9 +170,6 @@ public class ExtendedRecyclerAdapter<VIEW extends View, MODEL> {
                 items = dataSource.getItems();
             }
 
-            public void reloadItems() {
-                items = dataSource.getItems();
-            }
 
             @NonNull
             @Override
