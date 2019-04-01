@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.github.nfarima.extendedrecycleradapter.ExtendedRecyclerAdapter;
 import com.github.nfarima.extendedrecycleradapter.lambda.Click;
+import com.github.nfarima.extendedrecycleradapter.lambda.LongClick;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,8 +17,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private  void onClick(int position, String item) {
-        System.out.println(position+item);
+    private void onClick(int position, String item) {
+        System.out.println(position + ":" + item);
     }
 
     @Override
@@ -31,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
         new ExtendedRecyclerAdapter<TextView, String>(recycler)
                 .viewFactory(() -> new TextView(this))
                 .onClick(this::onClick)
+                .onLongClick(new LongClick<String>() {
+                    @Override
+                    public boolean onLongClick(int position, String item) {
+                        onClick(position,item);
+                        return true;
+                    }
+                })
                 .data(names)
                 .bind(TextView::setText)
                 .vertical();

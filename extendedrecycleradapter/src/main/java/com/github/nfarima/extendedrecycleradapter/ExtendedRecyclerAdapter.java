@@ -189,7 +189,8 @@ public class ExtendedRecyclerAdapter<VIEW extends View, MODEL> {
                                 //todo investigate why sometimes click only works on parent. dont use descendantFocusability
 //                                ((ViewGroup) itemView).getChildAt(0).setOnClickListener(clickListener);
 //                                ((ViewGroup) itemView).getChildAt(0).setOnLongClickListener(longClickListener);
-
+                                itemView.setOnClickListener(clickListener);
+                                itemView.setOnLongClickListener(longClickListener);
                                 for (int i = 0; i < checkedChange.size(); i++) {
                                     int id = checkedChange.keyAt(i);
                                     Checked<MODEL> checked = checkedChange.get(id);
